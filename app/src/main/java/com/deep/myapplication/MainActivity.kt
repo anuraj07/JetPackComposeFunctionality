@@ -37,8 +37,8 @@ class MainActivity : ComponentActivity() {
 //        https://pl.kotl.in/LeM95-Zt0  --> (color code)
         installSplashScreen()
         setContent {
+
             WallPaperComposeTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier
                         .fillMaxSize(),
