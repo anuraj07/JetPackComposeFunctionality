@@ -37,7 +37,6 @@ class MainActivity : ComponentActivity() {
 //        https://pl.kotl.in/LeM95-Zt0  --> (color code)
         installSplashScreen()
         setContent {
-
             WallPaperComposeTheme {
                 Surface(
                     modifier = Modifier
