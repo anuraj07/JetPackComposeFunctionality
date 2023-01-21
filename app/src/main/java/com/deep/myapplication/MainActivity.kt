@@ -38,7 +38,6 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         setContent {
             WallPaperComposeTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier
                         .fillMaxSize(),
