@@ -25,11 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.deep.myapplication.calculator.CalculatorActivity
-import com.deep.myapplication.ui.theme.Coral
-import com.deep.myapplication.ui.theme.Orange
-import com.deep.myapplication.ui.theme.Tan
-import com.deep.myapplication.ui.theme.WallPaperComposeTheme
+import com.deep.myapplication.ui.theme.*
 import com.deep.myapplication.utils.ToastFactory
+import com.deep.myapplication.whatsapp.WhatsAppActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,8 +67,8 @@ fun MainContent() {
                 CustomCard("Calculator", Tan, R.drawable.calculator) {
                     context.startActivity(Intent(context, CalculatorActivity::class.java))
                 }
-                CustomCard(text = "Experiment 2") {
-                    ToastFactory.showToast(context, "Feature not implemented")
+                CustomCard(text = "WhatsApp", Green, R.drawable.whatsapp) {
+                    context.startActivity(Intent(context, WhatsAppActivity::class.java))
                 }
                 CustomCard("Experiment 3") {
                     ToastFactory.showToast(context, "Feature not implemented")
