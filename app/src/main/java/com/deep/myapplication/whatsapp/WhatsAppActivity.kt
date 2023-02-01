@@ -1,7 +1,5 @@
 package com.deep.myapplication.whatsapp
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,6 +29,7 @@ import com.deep.myapplication.ui.theme.Cornsilk
 import com.deep.myapplication.ui.theme.Gold
 import com.deep.myapplication.ui.theme.WallPaperComposeTheme
 import com.deep.myapplication.utils.CountryCodePickerUtil
+import com.deep.myapplication.utils.ToastFactory
 import com.deep.myapplication.utils.getFlagEmojiFor
 import com.deep.myapplication.whatsapp.viewmodel.WhatsAppViewModel
 
@@ -72,8 +71,7 @@ fun WhatsAppUI(viewModel: WhatsAppViewModel) {
                     Text("Enter Phone Number", color = Gold)
                 },
                 keyboardOptions = KeyboardOptions(
-                    imeAction = ImeAction.Next,
-                    keyboardType = KeyboardType.Phone
+                    imeAction = ImeAction.Next, keyboardType = KeyboardType.Phone
                 ),
                 textStyle = TextStyle(fontSize = 18.sp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -90,14 +88,39 @@ fun WhatsAppUI(viewModel: WhatsAppViewModel) {
                 },
             )
 
-            Button(modifier = Modifier.fillMaxWidth(), onClick = {
-                val fullNumber = viewModel.mobileCountry.code + viewModel.phoneNumber
-                val url = "https://api.whatsapp.com/send?phone=$fullNumber&text=Eureka!!"
-                val i = Intent(Intent.ACTION_VIEW)
-                i.data = Uri.parse(url)
-                context.startActivity(i)
-            }) {
-                Text(text = "Send Message")
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = viewModel.message,
+                onValueChange = {
+                    viewModel.message = it
+                },
+                label = {
+                    Text("Enter Message (Optional)", color = Gold)
+                },
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next, keyboardType = KeyboardType.Text
+                ),
+                textStyle = TextStyle(fontSize = 18.sp),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    unfocusedBorderColor = Color.Gray,
+                )
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp),
+                onClick = {
+                    if (viewModel.isWhatsAppInstalled(context)) {
+                        viewModel.handleButtonClick(context)
+                    } else {
+                        ToastFactory.showToast(context, "WhatsApp Not Installed")
+                    }
+
+                }) {
+                Text(text = "Send Message", modifier = Modifier.background(Color.Transparent))
             }
         }
     }
@@ -110,21 +133,18 @@ fun CountryPickerView(
     countries: List<CountryCodePickerUtil>
 ) {
     var showDialog by remember { mutableStateOf(false) }
-    Text(
-        modifier = Modifier
-            .clickable {
-                showDialog = true
-            }
-            .padding(start = 20.dp, end = 5.dp),
+    Text(modifier = Modifier
+        .clickable {
+            showDialog = true
+        }
+        .padding(start = 20.dp, end = 5.dp),
         text = "${getFlagEmojiFor(selectedCountry.nameCode)} +${selectedCountry.code}",
         color = Color.Black,
-        fontSize = 18.sp
-    )
+        fontSize = 18.sp)
 
-    if (showDialog)
-        CountryCodePickerDialog(countries, onSelection) {
-            showDialog = false
-        }
+    if (showDialog) CountryCodePickerDialog(countries, onSelection) {
+        showDialog = false
+    }
 }
 
 @Composable
@@ -143,17 +163,15 @@ fun CountryCodePickerDialog(
             ) {
                 for (country in countries) {
                     item {
-                        Text(
-                            modifier = Modifier
-                                .clickable {
-                                    onSelection(country)
-                                    dismiss()
-                                }
-                                .fillMaxWidth()
-                                .padding(10.dp),
+                        Text(modifier = Modifier
+                            .clickable {
+                                onSelection(country)
+                                dismiss()
+                            }
+                            .fillMaxWidth()
+                            .padding(10.dp),
                             text = "${getFlagEmojiFor(country.nameCode)} ${country.fullName}",
-                            color = Color.Black
-                        )
+                            color = Color.Black)
                     }
                 }
             }
