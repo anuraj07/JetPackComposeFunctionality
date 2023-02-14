@@ -18,7 +18,7 @@ class WhatsAppViewModel: ViewModel() {
     val countriesList = getCountriesList()
     var mobileCountry by mutableStateOf(CountryCodePickerUtil("in", "91", "India"))
 
-    fun handleButtonClick(context: Context) { //TODO("Add Validation on Phone number")
+    fun handleButtonClick(context: Context) { // TODO("Add Validation on Phone number")
         val fullNumber = mobileCountry.code + phoneNumber
         val url = "https://api.whatsapp.com/send?phone=$fullNumber&text=$message"
         val i = Intent(Intent.ACTION_VIEW)
