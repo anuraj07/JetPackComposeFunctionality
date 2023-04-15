@@ -1,4 +1,4 @@
-package com.deep.myapplication.calculator.data
+package com.deep.myapplication.feature.calculator.data
 
 sealed class CalculatorAction {
     data class Number(val number: Int): CalculatorAction()

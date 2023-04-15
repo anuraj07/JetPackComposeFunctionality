@@ -16,12 +16,12 @@
         android:theme="@style/Theme.WallPaperCompose"
         tools:targetApi="31">
         <activity
-            android:name=".whatsapp.WhatsAppActivity"
+            android:name=".feature.whatsapp.WhatsAppActivity"
             android:exported="false"
             android:label="@string/title_activity_whats_app"
             android:theme="@style/Theme.WallPaperCompose" />
         <activity
-            android:name=".calculator.CalculatorActivity"
+            android:name=".feature.calculator.CalculatorActivity"
             android:exported="false"
             android:label="@string/title_activity_calculator"
             android:theme="@style/Theme.WallPaperCompose" />

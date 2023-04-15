@@ -1,4 +1,4 @@
-package com.deep.myapplication.calculator.customcomponent
+package com.deep.myapplication.feature.calculator.customcomponent
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box

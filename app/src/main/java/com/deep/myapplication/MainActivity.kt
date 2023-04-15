@@ -24,10 +24,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.deep.myapplication.calculator.CalculatorActivity
+import com.deep.myapplication.feature.calculator.CalculatorActivity
 import com.deep.myapplication.ui.theme.*
 import com.deep.myapplication.utils.ToastFactory
-import com.deep.myapplication.whatsapp.WhatsAppActivity
+import com.deep.myapplication.feature.whatsapp.WhatsAppActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

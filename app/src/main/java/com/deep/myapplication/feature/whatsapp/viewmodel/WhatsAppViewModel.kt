@@ -1,4 +1,4 @@
-package com.deep.myapplication.whatsapp.viewmodel
+package com.deep.myapplication.feature.whatsapp.viewmodel
 
 import android.content.Context
 import android.content.Intent
