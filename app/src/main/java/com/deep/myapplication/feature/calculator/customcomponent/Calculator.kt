@@ -1,4 +1,4 @@
-package com.deep.myapplication.calculator.customcomponent
+package com.deep.myapplication.feature.calculator.customcomponent
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -12,9 +12,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.deep.myapplication.calculator.data.CalculatorAction
-import com.deep.myapplication.calculator.data.CalculatorOperation
-import com.deep.myapplication.calculator.data.CalculatorState
+import com.deep.myapplication.feature.calculator.data.CalculatorAction
+import com.deep.myapplication.feature.calculator.data.CalculatorOperation
+import com.deep.myapplication.feature.calculator.data.CalculatorState
 import com.deep.myapplication.ui.theme.Orange
 
 @Composable

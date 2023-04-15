@@ -1,4 +1,4 @@
-package com.deep.myapplication.calculator.data
+package com.deep.myapplication.feature.calculator.data
 
 sealed class CalculatorOperation(val symbol: String) {
     object Add : CalculatorOperation("+")

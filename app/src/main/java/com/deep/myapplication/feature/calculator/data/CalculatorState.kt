@@ -1,4 +1,4 @@
-package com.deep.myapplication.calculator.data
+package com.deep.myapplication.feature.calculator.data
 
 data class CalculatorState(
     val number1: String = "",

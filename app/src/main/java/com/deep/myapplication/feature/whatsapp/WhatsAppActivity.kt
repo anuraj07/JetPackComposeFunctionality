@@ -1,4 +1,4 @@
-package com.deep.myapplication.whatsapp
+package com.deep.myapplication.feature.whatsapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -31,7 +31,7 @@ import com.deep.myapplication.ui.theme.WallPaperComposeTheme
 import com.deep.myapplication.utils.CountryCodePickerUtil
 import com.deep.myapplication.utils.ToastFactory
 import com.deep.myapplication.utils.getFlagEmojiFor
-import com.deep.myapplication.whatsapp.viewmodel.WhatsAppViewModel
+import com.deep.myapplication.feature.whatsapp.viewmodel.WhatsAppViewModel
 
 
 class WhatsAppActivity : ComponentActivity() {

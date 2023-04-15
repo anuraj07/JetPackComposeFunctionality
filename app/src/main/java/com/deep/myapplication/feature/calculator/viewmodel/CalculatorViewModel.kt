@@ -1,12 +1,12 @@
-package com.deep.myapplication.calculator.viewmodel
+package com.deep.myapplication.feature.calculator.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.deep.myapplication.calculator.data.CalculatorAction
-import com.deep.myapplication.calculator.data.CalculatorOperation
-import com.deep.myapplication.calculator.data.CalculatorState
+import com.deep.myapplication.feature.calculator.data.CalculatorAction
+import com.deep.myapplication.feature.calculator.data.CalculatorOperation
+import com.deep.myapplication.feature.calculator.data.CalculatorState
 
 class CalculatorViewModel: ViewModel() {
     var state by mutableStateOf(CalculatorState())
